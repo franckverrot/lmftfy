@@ -19,7 +19,7 @@
   <body>
     <div style="margin-left: auto; margin-right: auto; width: 1000px; float: left; text-align: center;">
       <h1>Let Me Fork That For You</h1>
-      <% if @error.nil? %>
+      <% if @error.nil? and @result %>
         <a href="<%= @result %>" title="Your Own Fork!">Here you go, apply your patch anytime, you don't even need a pull request. How cool is that? :)</a>
       <%else%>
         <%= @error %>
