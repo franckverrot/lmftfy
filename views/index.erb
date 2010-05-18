@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Let Me Fork That For You</title>
+    <script type="text/css">
+      body { bgcolor: #ccc }
+      input  {
+        font-family: Arial, Sans-Serif;
+        font-size: 13px;
+        margin-bottom: 5px;
+        display: block;
+        padding: 4px;
+        border: solid 1px #85b1de;
+        width: 300px;
+      }
+    </script>
+  </head>
+  <body>
+    <div style="margin-left: auto; margin-right: auto; width: 1000px; float: left; text-align: center;">
+      <h1>Let Me Fork That For You</h1>
+      <% unless @result.nil? %>
+        <a href="<%= @result %>" title="Your Own Fork!">Here you go, apply your patch anytime, you don't even need a pull request. How cool is that? :)</a>
+      <% end %>
+      <form action="/#<%= Time.now.to_i %>" method="post">
+        <input type="text" title="Github login (ex: cesario)" name="gh_login" placeholder="Github login (ex: cesario)">
+        <input type="password" title="Github password (ex: s3cr37)" name="gh_password" placeholder="Github password (ex: s3cr37)"><br />
+        <input type="text" name="gh_repo_owner" title="Owner to fork (ex: cesario)" placeholder="Owner to fork (ex: rails)">
+        <input type="text" name="gh_repo_name" title="Repository to fork (ex: lmftfy)" placeholder="Repository to fork (ex: rails)"><br />
+        <button type="submit" style="background-color: #FDA92B">Fork that!</button>
+      </form>
+    </div>
+  </body>
+</html>
