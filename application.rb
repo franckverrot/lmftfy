@@ -22,9 +22,10 @@ end
 post '/' do
   forker = Lmftfy::Forker.new params[:gh_login], params[:gh_password]
   begin
+    @error = nil
     @result = JSON.parse(forker.fork(params[:gh_repo_owner], params[:gh_repo_name]))['repository']['url']
   rescue
-    @result = "An error occured, please verify both your credentials and the repository you wanna fork"
+    @error = "An error occured, please verify both your credentials and the repository you wanna fork"
   end
   erb :index
 end
